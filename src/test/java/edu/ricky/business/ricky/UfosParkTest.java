@@ -1,4 +1,4 @@
-package edu.ricky.business.UfosPark;
+package edu.ricky.business.ricky;
 
 import org.junit.Test;
 
