@@ -88,8 +88,8 @@ public class RicksyBusiness {
               gearHead.pay(3000); // le vacían la cartera
 
               ufospark.dispatch(gearHead);
-              System.out.println("Su credito es cero: " + gearHead.credit());
-              System.out.println("No puede reservar ovni: " + ufospark.getUfoOf(gearHead.number()));
+              System.out.println("Su credito es cero: " + gearHead.getCredit());
+              System.out.println("No puede reservar ovni: " + ufospark.getUfoOf(gearHead.getNumber()));
 
               // Squanchy deja su ovni reservado
               // antes de irse a squanchear
@@ -97,8 +97,8 @@ public class RicksyBusiness {
               System.out.println("\nLLega Squanchy!\n" + "==============");
               CreditCard squanchy = new CreditCard("Squanchy", "4444444444444444");
               ufospark.dispatch(squanchy);
-              System.out.println("Su credito es: " + squanchy.credit());
-              System.out.println("Su ovni es: " + ufospark.getUfoOf(squanchy.number()));
+              System.out.println("Su credito es: " + squanchy.getCredit());
+              System.out.println("Su ovni es: " + ufospark.getUfoOf(squanchy.getNumber()));
 
               // Morty quiere un ovni para huir de la fiesta
               // pero ya no queda ninguno disponible
@@ -106,8 +106,8 @@ public class RicksyBusiness {
               System.out.println("\nAlgun ovni para Morty?\n" + "======================");
               CreditCard morty = new CreditCard("Morty", "0000000000000000");
               ufospark.dispatch(morty);
-              System.out.println("Su credito no ha cambiado: " + morty.credit());
-              System.out.println("No hay ovni Morty: " + ufospark.getUfoOf(morty.number()));
+              System.out.println("Su credito no ha cambiado: " + morty.getCredit());
+              System.out.println("No hay ovni Morty: " + ufospark.getUfoOf(morty.getNumber()));
 
               // Metemos un ovni más en la flota de ovnis
               // y mostramos la flota por consola
