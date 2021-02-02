@@ -26,6 +26,13 @@
 package edu.ricky.business.ricky;
 
 import edu.ricky.business.ricky.CreditCard;
+import edu.ricky.business.ricky.UfosPark;
+import edu.ricky.business.ricky.Receptivo;
+import edu.ricky.business.ricky.RickMenuDispatcher;
+import edu.ricky.business.ricky.GuestDispatcher;
+import edu.ricky.business.ricky.CrystalExpender;
+
+
 
 public class RicksyBusiness {
 
@@ -121,7 +128,7 @@ public class RicksyBusiness {
                * y el coste de cada uno de ellos, que es de 50 EZIs
                */
 
-              CrystalExpender packExpender = new CrystalExpender(3, 50);
+              GuestDispatcher packExpender = (GuestDispatcher) new CrystalExpender(3, 50);
 
               // Muestra el total de packs y su precio unidad
               System.out.println("\nPacks\n" + "=====");
@@ -139,6 +146,99 @@ public class RicksyBusiness {
               packExpender.dispatch(gearHead);
               System.out.println("Packs\n" + packExpender);
               System.out.println("Credito de GearHead: " + gearHead.getCredit());
+              
+              /**
+               * Vamos a automatizar ahora ambas tareas, de modo que
+               * cuando llega un invitado/a se le asiga un ovni
+               * y un pack y se realiza el cargo a la tarjeta.
+               * 
+               * Para ello, crea el componente receptivo
+               * y registra (añade) los componentes UfosPark
+               * y CrystalDispatcher al receptivo
+               */
 
-       }
+              Receptivo receptivo = new Receptivo();
+              receptivo.registra(ufospark);
+              receptivo.registra(packExpender);
+
+              // Implementa el metodo receptivo.dispatch()
+              // para que invoque a UfosPark.dispatch()
+              // y a CrystalExpender.dispatch()
+
+              // Squanchy reserva ovni (ya tiene) y pack
+
+              System.out.println("\nLLega Squanchy!\n" + 
+                                   "===============");
+              receptivo.dispatch(squanchy);
+              mostrarReserva(squanchy, packExpender, ufospark);
+
+              // Gearhead reserva ovni y pack.
+              // No tiene crédito.
+
+              System.out.println("\nLLega GearHead!\n" + 
+                                   "===============");
+              gearHead.pay(3000); // no tiene crédito
+              receptivo.dispatch(gearHead);
+              mostrarReserva(gearHead, packExpender, ufospark);
+
+              // Birdpearson es recibido en la fiesta
+
+              System.out.println("\nLLega Birdpearson!\n" + 
+                                   "==================");
+              CreditCard birdpearson = new CreditCard("Birdpearson", "1111111111111111");
+              receptivo.dispatch(birdpearson);
+              mostrarReserva(birdpearson, packExpender, ufospark);
+
+              // Morty intenta reserver un ovni y un pack pero no quedan
+
+              System.out.println("\nMorty quiere pack y ovni pero no quedan :(\n" + 
+                                   "==========================================");
+              morty = new CreditCard("Morty", "0000000000000000");
+              receptivo.dispatch(morty);
+              mostrarReserva(morty, packExpender, ufospark);
+              
+
+              /**
+               * A por el 10!! 
+               * Wubba lubba dub dub!!
+               * 
+               * Añade otra tarea al receptivo,
+               * de modo que 5 invitados:
+               * abradolph, squanchy, morty, gearHead, birdpearson
+               * encarguen un RickMenú junto 
+               * al ovni y al pack de bienvenida.
+               * Hay 100 RickMenús y su precio es de 10 EZIs.
+               * Muestra el total de pedidos y la lista de
+               * invitados/as (numero de tarjeta) que han hecho un pedido.
+               */
+
+              // tu código aquí
+
+              RickMenuDispatcher MenuDispatcher = new RickMenuDispatcher();
+
+              CreditCard[] cards = {abradolph, squanchy, morty, gearHead, birdpearson};
+
+              for (CreditCard card: cards) {
+              receptivo.dispatch(card);
+              }
+
+              System.out.println("\nPedidos de RickMenus:\n" + 
+                                   "=====================");
+              System.out.println(MenuDispatcher);
+
+              System.out.println("\nCreditos de los invitados/as:\n" + 
+                                   "=============================");
+
+              for (CreditCard card: cards) {
+              System.out.println(card);
+              System.out.println();
+                     }
+              }
+
+              private static void mostrarReserva(CreditCard card, GuestDispatcher packExpender, UfosPark ufos) {
+                     System.out.println(card);
+                     System.out.println("Packs: " + ((CrystalExpender) packExpender).stock());
+                     System.out.println("Ovni: " + ufos.getUfoOf(card.getNumber()));
+              }
 }
+

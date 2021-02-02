@@ -1,8 +1,7 @@
 package edu.ricky.business.ricky;
 
-import edu.ricky.business.ricky.CreditCard;
+class CrystalExpender implements GuestDispatcher {
 
-public class CrystalExpender {
     private int stock = 0;
     private double itemCost = 0d;
 
@@ -11,6 +10,7 @@ public class CrystalExpender {
         this.itemCost = itemCost;
     }
 
+    @Override
     public void dispatch(CreditCard card) {
         if (this.stock > 0 && card.pay(itemCost)) {
             this.stock -= 1;
