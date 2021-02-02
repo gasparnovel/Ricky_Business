@@ -38,13 +38,13 @@ El componente de reserva de Ovnis y el componente de entrega del pack de bienven
 
 Intenta que la salida del programa sea lo más parecida posible a las imágenes que se proporcionan.
 
-!["Historias de usuario"](imagenes/Salida_consola_01.png)
+!["Historias de usuario"](imagenes_README/Salida_consola_01.png)
 
-!["Historias de usuario"](imagenes/Salida_consola_02.png)
+!["Historias de usuario"](imagenes_README/Salida_consola_02.png)
 
-!["Historias de usuario"](imagenes/Salida_consola_03.png)
+!["Historias de usuario"](imagenes_README/Salida_consola_03.png)
 
-!["Historias de usuario"](imagenes/Salida_consola_04.png)
+!["Historias de usuario"](imagenes_README/Salida_consola_04.png)
 
 
 
@@ -58,4 +58,4 @@ Las historias de usuario están enunciadas en el script principal `RicksyBusines
 Sigue el diagrama de clase UML proporcionado para construir la aplicación.
 Si añades algún componente, dibújalo a mano alzada sobre el diagrama.
 
-!["Diagrama de clases UML"](imagenes/diagrama%20clases%20UML.jpg)
+!["Diagrama de clases UML"](imagenes_README/diagrama%20clases%20UML.jpg)
