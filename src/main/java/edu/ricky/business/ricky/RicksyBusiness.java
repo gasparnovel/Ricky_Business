@@ -46,6 +46,44 @@ public class RicksyBusiness {
                                           "===================="        );
               System.out.println(abradolph);
        
-              
+              /**
+               * Construye el componente de reserva de Ovnis.
+               * Recibe el objeto tarjeta de crédito del invitado/a
+               * en el método dispatch(card)
+               * y realiza un cargo a la tarjeta.
+               * Si hay saldo suficiente se reserva un UberOvni
+               * de los que estén libres.
+               * El coste del ovni es de 500 EZIs.
+               */
+              UfosPark ufospark = new UfosPark();
+
+              String[] ufosID = {"unx", "dox"};
+                     for (String ovni : ufosID) {
+                            ufospark.add(ovni);
+              }
+       
+              // Procesamos el pago y reserva de ovni de Abradolph
+
+              ufospark.dispatch(abradolph);
+
+              // Mostramos el ID del ovni asignado a Abradolph
+
+              System.out.println("\nOvni de Abradolph\n" +
+                                   "==================");
+              System.out.println(ufospark.getUfoOf(abradolph.getNumber()));
+       
+              // Mostramos el credito de la tarjeta de Abradolph
+
+              System.out.println("Credito de Abradolph: " + abradolph.getCredit());
+
+              // La dualidad en Abradolph quiere reservar otro ovni.
+              // El sistema detecta que ya tiene uno 
+              // e ignora la petición.
+
+              System.out.println("\nAbradolph quiere otro ovni\n" + 
+                            "==========================");
+              ufospark.dispatch(abradolph);
+              System.out.println("Su credito no ha cambiado: " + abradolph.getCredit());
+              System.out.println("Ovni de Abradolph: " + ufospark.getUfoOf(abradolph.getNumber()));
        }
 }

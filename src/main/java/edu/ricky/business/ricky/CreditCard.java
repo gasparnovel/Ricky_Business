@@ -13,7 +13,7 @@ public class CreditCard {
         this.credit = credit;
         }
     
-    boolean pay(double charge) {
+    public boolean pay(double charge) {
         if (charge <= this.credit) {
             this.credit -= charge;
             return true;
