@@ -32,4 +32,4 @@ Las historias de usuario están enunciadas en el script principal `RicksyBusines
 
 Seguimos el diagrama de clase UML para contruir la apliación:
 
-!["Diagrama de clases UML"](imagenes_README/diagrama%20clases%20UML.jpg)
+![Diagrama de clases UML](imagenes_README/diagrama_clases_%20UML_.png)
